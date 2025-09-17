@@ -1,10 +1,10 @@
-// src/pages/Dashboard.jsx
 import React, { useState } from "react";
-import { BarChart3, Activity, Target, Zap } from "lucide-react";
+import { Activity, Target, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import OverviewTab from "../components/dashboard/OverviewTab";
 import CausalAnalysisTab from "../components/dashboard/CausalAnalysisTab";
 import SimulationTab from "../components/dashboard/SimulationTab";
+import Header from "../components/dashboard/Header";
 
 // --- Animation Variants ---
 const tabContentVariants = {
@@ -34,26 +34,11 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex items-center space-x-3">
-            <div className="p-2 bg-blue-600 rounded-lg">
-              <BarChart3 className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">Dashboard</h1>
-              <p className="text-sm text-gray-600">
-                Causal Forecasting & Simulation Platform
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Header />
 
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 py-6">
-        {/* Navigation Tabs */}
-        <div className="flex space-x-4 mb-8">
+      {/* Navigation Tabs (now separate bar) */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex space-x-4">
           <TabButton
             id="overview"
             label="Overview"
@@ -76,8 +61,10 @@ const Dashboard = () => {
             onClick={setActiveTab}
           />
         </div>
+      </div>
 
-        {/* Tab Content with Animation */}
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 py-6">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
