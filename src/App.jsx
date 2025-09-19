@@ -3,18 +3,19 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
-import HowToUse from "./pages/HowToUse";
 import AboutUs from "./pages/AboutUs";
+import HowToUse from "./pages/HowToUse";
 
-const App = () => {
+function App() {
   return (
     <Routes>
-      <Route path="/" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard />} /> 
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/how-to-use" element={<HowToUse />} />
       <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/how-to-use" element={<HowToUse />} />
     </Routes>
   );
-};
+}
 
 export default App;
